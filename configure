@@ -1,0 +1,74 @@
+#!/bin/sh
+
+set -e
+if [ ! -d sunxi-boards/sys_config/ ]; then
+	git submodule init
+	git submodule update sunxi-boards
+fi
+
+list_boards() {
+	ls -1 sunxi-boards/sys_config/*/*.fex |
+	sed -n -e 's|.*/\([^/]\+\)\.fex$|\1|p' | sort -V #|
+#	sed -e 's|.*|\t* \0 \0-android|'
+}
+
+# keep the output `sh` friendly
+# i.e., no spaces around the '='
+generate_board_mk() {
+	local board="${1%-android}" android= soc=
+
+	[ "$board" = "$1" ] || android=yes
+	soc=$(ls -1 sunxi-boards/sys_config/*/$board.fex 2> /dev/null | cut -d/ -f3)
+
+	cat <<-EOT
+	BOARD=$board
+	ANDROID=$android
+	SOC=$soc
+	UBOOT_CONFIG=$board
+	EOT
+
+	case "$soc" in
+	a10)
+		cat <<-EOT
+		MACH=sun4i
+		KERNEL_CONFIG=sun4i${android:+_crane}_defconfig
+		EOT
+		;;
+	a13)
+		cat <<-EOT
+		MACH=sun5i
+		KERNEL_CONFIG=a13${android:+_nuclear}_defconfig
+		EOT
+		;;
+	*)
+		echo "$soc: unsupport SoC" >&2
+		return 1
+		;;
+	esac
+}
+
+usage() {
+	cat <<-EOT >&2
+	Usage: $0 <board>
+
+	supported boards:
+	EOT
+	list_boards
+}
+
+if [ $# -eq 0 ]; then
+	usage
+elif ls -1 sunxi-boards/sys_config/*/${1%-android}.fex 2> /dev/null 1>&2; then
+	out=chosen_board.mk
+	if generate_board_mk "$1" > $out~; then
+		mv $out~ $out
+		echo "$1 configured. Now run \`make\`"
+	else
+		rm $out~
+		exit 1
+	fi
+else
+	echo "$1: invalid board name" >&2
+	usage
+	exit 1
+fi
