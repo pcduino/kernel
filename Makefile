@@ -1,6 +1,6 @@
 .PHONY: all clean help
 .PHONY: tools u-boot linux libs hwpack hwpack-install
-.PHONY: linux-config livesuit android
+.PHONY: patch linux-config livesuit android
 
 SUDO=sudo
 CROSS_COMPILE=arm-linux-gnueabihf-
@@ -20,11 +20,15 @@ K_O_PATH=$(BUILD_PATH)/$(KERNEL_CONFIG)-linux
 U_CONFIG_H=$(U_O_PATH)/include/config.h
 K_DOT_CONFIG=$(K_O_PATH)/.config
 
-all: hwpack livesuit
+all: patch hwpack livesuit
 
 clean:
 	rm -rf $(BUILD_PATH)
-	rm -f chosen_board.mk
+
+## patch
+patch: linux-sunxi/.git
+	$(Q)$(CURDIR)/apply_patch.sh
+	$(Q)rm -f $(K_DOT_CONFIG)
 
 ## tools
 tools: sunxi-tools/.git
