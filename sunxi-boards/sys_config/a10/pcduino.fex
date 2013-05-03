@@ -244,8 +244,8 @@ full_duplex = 0
 manual_cs = 0
 
 [spi_board1]
-modalias = "spiadc"
-max_speed_hz = 2500000
+modalias = "spidev"
+max_speed_hz = 12000000
 bus_num = 2
 chip_select = 0
 mode = 0
@@ -908,7 +908,7 @@ key_max = 6
 
 [gpio_para]
 gpio_used = 1
-gpio_num = 20
+gpio_num = 24
 gpio_pin_0 = port:PI19<0><1><default><default>
 gpio_pin_1 = port:PI18<0><1><default><default>
 gpio_pin_2 = port:PH07<0><1><default><default>
@@ -929,6 +929,10 @@ gpio_pin_16 = port:PH13<0><1><default><default>
 gpio_pin_17 = port:PH14<0><1><default><default>
 gpio_pin_18 = port:PH15<1><default><default><0>
 gpio_pin_19 = port:PH16<1><default><default><0>
+gpio_pin_20 = port:PC19<0><1><default><default>
+gpio_pin_21 = port:PC21<0><1><default><default>
+gpio_pin_22 = port:PC22<0><1><default><default>
+gpio_pin_23 = port:PC20<0><1><default><default>
 
 [sb_pwm0]
 pwm_gpio = port:PH06<1><default><default><default>
