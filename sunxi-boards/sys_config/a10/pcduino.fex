@@ -952,18 +952,3 @@ pwm_gpio = port:PI10<1><default><default><default>
 [sb_pwm5]
 pwm_gpio = port:PI12<1><default><default><default>
 
-[dvfs_table]
-max_freq = 1200000000
-min_freq = 600000000
-LV_count = 5
-LV1_freq = 1200000000
-LV1_volt = 1600
-LV2_freq = 1008000000
-LV2_volt = 1400
-LV3_freq = 912000000
-LV3_volt = 1350
-LV4_freq = 864000000
-LV4_volt = 1300
-LV5_freq = 624000000
-LV5_volt = 1250
-
