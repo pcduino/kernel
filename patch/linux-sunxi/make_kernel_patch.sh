@@ -34,6 +34,12 @@ do
 	fi
 done
 
+cd $TMP_PATCH_DIR/
+find ./ -name "*.cmd" | xargs rm -rf
+find ./ -name "*.mod.c" | xargs rm -rf
+find ./ -name "*.ko" | xargs rm -rf
+find ./ -name "modules.builtin" | xargs rm -rf
+find ./ -name "modules.order" | xargs rm -rf
 
 cd $TMP_PATCH_DIR/../../
 tar zcf patch.tgz ./patch
