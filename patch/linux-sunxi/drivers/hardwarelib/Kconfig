@@ -1,0 +1,59 @@
+menu "hardware lib support"
+
+config HARDWARE_LIB
+	bool "hardware lib"
+
+config HARDWARE_LIB_UTIL
+	tristate "hardware lib util"
+	depends on HARDWARE_LIB
+	default m
+
+config HARDWARE_LIB_ADC
+        tristate "adc driver"
+	depends on HARDWARE_LIB_UTIL
+        default m
+
+config HARDWARE_LIB_GPIO
+        tristate "gpio driver"
+	depends on HARDWARE_LIB_UTIL && !SUN4I_GPIO_UGLY
+        default m
+
+config HARDWARE_LIB_PWM
+        tristate "pwm driver"
+	depends on HARDWARE_LIB_UTIL
+        default m
+
+config HARDWARE_LIB_INTERRUPT
+        tristate "interrupt driver"
+        depends on HARDWARE_LIB_UTIL
+        default m
+
+config HARDWARE_LIB_SPI
+        bool "spi driver patch"
+	depends on HARDWARE_LIB
+        default y
+
+config HARDWARE_LIB_I2C
+        bool "i2c driver patch"
+        depends on HARDWARE_LIB
+        default y
+
+config SUNXI_DVI_FIX
+        bool "bug fix for dvi display"
+	depends on HARDWARE_LIB
+        default y
+
+config HARDWARE_LIB_ROOTFS
+	bool "initramfs"
+	default n
+
+config HARDWARE_LIB_KEYPAD
+	tristate "keypad driver for android (HOME/MENU/BACK)"
+	default n
+
+config RTXX7X_SW
+	tristate "rt5370 wireless driver"
+	default n
+
+endmenu
+
