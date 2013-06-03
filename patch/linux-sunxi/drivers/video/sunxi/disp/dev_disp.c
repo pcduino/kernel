@@ -35,6 +35,9 @@
 #include "disp_lcd.h"
 #include "dev_fb.h"
 
+#ifdef CONFIG_SUNXI_DVI_FIX
+extern void update_window_percent(int percent);
+#endif
 
 struct info_mm {
 	void *info_base;	/* Virtual address */
@@ -691,8 +694,8 @@ static long disp_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 			filp_data->version = version;
 			return SUNXI_DISP_VERSION;
 		} else {
-			pr_err("disp: process %d (%s) has skipped the version "
-			       "handshake.\n", current->pid, current->comm);
+			//pr_info("disp: process %d (%s) has skipped the version "
+			//       "handshake.\n", current->pid, current->comm);
 			filp_data->version = SUNXI_DISP_VERSION_SKIPPED;
 		}
 	}
@@ -1029,6 +1032,13 @@ static long disp_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 				__wrn("copy_from_user fail\n");
 				return -EFAULT;
 			}
+#ifdef CONFIG_SUNXI_DVI_FIX
+			int percent = 0;
+			__disp_rect_t src_para;
+			BSP_disp_layer_get_src_window(ubuffer[0], ubuffer[1], &src_para);
+			percent = 100*100/( src_para.width*100 / para.width );
+			update_window_percent(percent);
+#endif
 			ret = BSP_disp_layer_set_screen_window(ubuffer[0],
 							       ubuffer[1],
 							       &para);
