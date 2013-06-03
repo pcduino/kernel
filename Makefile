@@ -14,7 +14,7 @@ include chosen_board.mk
 
 DATE=$(shell date +"%4Y%2m%2d")
 
-HWPACK=$(OUTPUT_DIR)/a10_hwpack_${DATE}.tar.xz
+HWPACK=$(OUTPUT_DIR)/${BOARD}_${SOC}_hwpack_${DATE}.tar.xz
 U_O_PATH=$(BUILD_PATH)/$(UBOOT_CONFIG)-u-boot
 K_O_PATH=$(BUILD_PATH)/$(KERNEL_CONFIG)-linux
 U_CONFIG_H=$(U_O_PATH)/include/config.h

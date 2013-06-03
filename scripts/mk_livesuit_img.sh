@@ -37,7 +37,7 @@ modify_image_cfg()
 	cp -rf $1 ${BUILD_DIR}/image.cfg
 	sed -i -e "s|^INPUT_DIR..*$|INPUT_DIR=${BUILD_DIR}|g" \
 		-e "s|^EFEX_DIR..*$|EFEX_DIR=${SOURCE_DIR}/eFex|g" \
-		-e "s|^imagename..*$|imagename=output/a10_kernel_livesuit_${DATE}.img|g" \
+		-e "s|^imagename..*$|imagename=output/${BOARD}_${SOC}_kernel_livesuit_${DATE}.img|g" \
 		${BUILD_DIR}/image.cfg
 }
 
