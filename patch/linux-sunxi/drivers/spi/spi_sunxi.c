@@ -1081,7 +1081,7 @@ static void spi_sunxi_work(struct work_struct *work)
         list_for_each_entry (t, &msg->transfers, transfer_list) {
             if ((status == -1) || t->bits_per_word || t->speed_hz) { /* xfer_setup if first transfer or overrides provided. */
                 status = spi_sunxi_xfer_setup(spi, t);/* set the value every spi transfer */
-                spi_msg(" xfer setup \n");
+                /* spi_msg(" xfer setup \n"); */
                 if (status < 0)
                     break;/* fail, quit */
             }
