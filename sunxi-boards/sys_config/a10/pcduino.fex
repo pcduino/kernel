@@ -909,7 +909,6 @@ key_max = 6
 [gpio_para]
 gpio_used = 1
 gpio_num = 24
-gpio_pin_0 = port:PI19<0><1><default><default>
 gpio_pin_1 = port:PI18<0><1><default><default>
 gpio_pin_2 = port:PH07<0><1><default><default>
 gpio_pin_3 = port:PH06<0><1><default><default>
