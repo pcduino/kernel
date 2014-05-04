@@ -156,8 +156,8 @@ uart_ring = port:PA17<4><1><default><default>
 uart_used = 1
 uart_port = 2
 uart_type = 4
-uart_tx = port:PI18<3><1><default><default>
-uart_rx = port:PI19<3><1><default><default>
+uart_tx = port:PI18<0><2><default><default>
+uart_rx = port:PI19<1><2><default><0>
 uart_rts = port:PI16<3><1><default><default>
 uart_cts = port:PI17<3><1><default><default>
 
@@ -201,10 +201,10 @@ uart_rx = port:PA15<4><1><default><default>
 [spi0_para]
 spi_used = 1
 spi_cs_bitmap = 1
-spi_cs0 = port:PI10<2><default><default><default>
-spi_sclk = port:PI11<2><default><default><default>
-spi_mosi = port:PI12<2><default><default><default>
-spi_miso = port:PI13<2><default><default><default>
+spi_cs0 = port:PI10<0><2><default><default>
+spi_sclk = port:PI11<0><2><default><default>
+spi_mosi = port:PI12<0><2><default><default>
+spi_miso = port:PI13<0><2><default><default>
 
 [spi1_para]
 spi_used = 0
@@ -217,10 +217,10 @@ spi_miso = port:PA03<4><default><default><default>
 [spi2_para]
 spi_used = 1
 spi_cs_bitmap = 1
-spi_cs0 = port:PC19<3><default><default><default>
-spi_sclk = port:PC20<3><default><default><default>
-spi_mosi = port:PC21<3><default><default><default>
-spi_miso = port:PC22<3><default><default><default>
+spi_cs0 = port:PC19<0><2><default><default>
+spi_sclk = port:PC20<0><2><default><default>
+spi_mosi = port:PC21<0><2><default><default>
+spi_miso = port:PC22<0><2><default><default>
 
 [spi3_para]
 spi_used = 0
@@ -361,11 +361,11 @@ lcd_gamma_correction_en = 0
 lcd_gamma_tbl_0 = 0x0
 lcd_gamma_tbl_1 = 0x10101
 lcd_gamma_tbl_255 = 0xffffff
-lcd_bl_en_used = 1
+lcd_bl_en_used = 0
 lcd_bl_en = port:PH07<1><0><default><1>
-lcd_power_used = 1
-lcd_power = port:PH08<1><0><default><1>
-lcd_pwm_used = 1
+lcd_power_used = 0
+lcd_power = port:PH08<0><2><default><default>
+lcd_pwm_used = 0
 lcd_pwm = port:PB02<2><0><default><default>
 lcd_gpio_0 =
 lcd_gpio_1 =
@@ -435,7 +435,7 @@ lcd_bl_en_used = 0
 lcd_bl_en =
 lcd_power_used = 0
 lcd_power =
-lcd_pwm_used = 1
+lcd_pwm_used = 0
 lcd_pwm = port:PI03<2><0><default><default>
 lcd_gpio_0 =
 lcd_gpio_1 =
@@ -449,7 +449,7 @@ lcdd4 = port:PH04<2><0><default><default>
 lcdd5 = port:PH05<2><0><default><default>
 lcdd6 = port:PH06<2><0><default><default>
 lcdd7 = port:PH07<2><0><default><default>
-lcdd8 = port:PH08<2><0><default><default>
+lcdd8 = port:PH08<0><2><default><default>
 lcdd9 = port:PH09<2><0><default><default>
 lcdd10 = port:PH10<2><0><default><default>
 lcdd11 = port:PH11<2><0><default><default>
@@ -478,7 +478,7 @@ dac2_src = 6
 dac3_src = 0
 
 [csi0_para]
-csi_used = 1
+csi_used = 0
 csi_mode = 0
 csi_dev_qty = 1
 csi_stby_mode = 0
@@ -608,7 +608,7 @@ tvin_used = 0
 tvin_channel_num = 4
 
 [sata_para]
-sata_used = 1
+sata_used = 0
 sata_power_en =
 
 [mmc0_para]
@@ -626,7 +626,7 @@ sdc_use_wp = 0
 sdc_wp =
 
 [mmc1_para]
-sdc_used = 1
+sdc_used = 0
 sdc_detmode = 1
 bus_width = 4
 sdc_cmd = port:PH22<5><1><2><default>
@@ -643,7 +643,7 @@ sdc_wp =
 sdc_used = 0
 
 [mmc3_para]
-sdc_used = 1
+sdc_used = 0
 sdc_detmode = 4
 bus_width = 4
 sdc_cmd = port:PI04<2><1><2><default>
@@ -695,7 +695,7 @@ can_rx = port:PA17<3><default><default><default>
 kp_used = 0
 kp_in_size = 8
 kp_out_size = 8
-kp_in0 = port:PH08<4><1><default><default>
+kp_in0 = port:PH08<0><2><default><default>
 kp_in1 = port:PH09<4><1><default><default>
 kp_in2 = port:PH10<4><1><default><default>
 kp_in3 = port:PH11<4><1><default><default>
@@ -769,12 +769,12 @@ gps_lradc = 1
 gps_clk = port:PI00<2><default><default><default>
 gps_sign = port:PI01<2><default><default><default>
 gps_mag = port:PI02<2><default><default><default>
-gps_vcc_en = port:PC22<1><default><default><0>
+gps_vcc_en = port:PC22<0><2><default><default>
 gps_osc_en = port:PI14<1><default><default><0>
 gps_rx_en = port:PI15<1><default><default><0>
 
 [sdio_wifi_para]
-sdio_wifi_used = 1
+sdio_wifi_used = 0
 sdio_wifi_sdc_id = 3
 sdio_wifi_mod_sel = 1
 swl_n20_shdn = port:PH09<1><default><default><0>
@@ -838,6 +838,8 @@ spdif_din =
 
 [audio_para]
 audio_used = 1
+capture_used = 1
+audio_lr_change = 0
 audio_pa_ctrl = port:PH15<1><default><default><0>
 
 [ir_para]
@@ -909,32 +911,30 @@ key_max = 6
 [gpio_para]
 gpio_used = 1
 gpio_num = 24
-gpio_pin_0 = port:PI19<0><1><default><default>
-gpio_pin_1 = port:PI18<0><1><default><default>
-gpio_pin_2 = port:PH07<0><1><default><default>
-gpio_pin_3 = port:PH06<0><1><default><default>
-gpio_pin_4 = port:PH08<0><1><default><default>
-gpio_pin_5 = port:PB02<0><1><default><default>
-gpio_pin_6 = port:PI03<0><1><default><default>
-gpio_pin_7 = port:PH09<0><1><default><default>
-gpio_pin_8 = port:PH10<0><1><default><default>
-gpio_pin_9 = port:PH05<0><1><default><default>
-gpio_pin_10 = port:PI10<0><1><default><default>
-gpio_pin_11 = port:PI12<0><1><default><default>
-gpio_pin_12 = port:PI13<0><1><default><default>
-gpio_pin_13 = port:PI11<0><1><default><default>
-gpio_pin_14 = port:PH11<0><1><default><default>
-gpio_pin_15 = port:PH12<0><1><default><default>
-gpio_pin_16 = port:PH13<0><1><default><default>
-gpio_pin_17 = port:PH14<0><1><default><default>
+gpio_pin_0 = port:PI19<1><2><default><0>
+gpio_pin_1 = port:PI18<0><2><default><default>
+gpio_pin_2 = port:PH07<0><2><default><default>
+gpio_pin_3 = port:PH06<0><2><default><default>
+gpio_pin_4 = port:PH08<0><2><default><default>
+gpio_pin_5 = port:PB02<0><2><default><default>
+gpio_pin_6 = port:PI03<0><2><default><default>
+gpio_pin_7 = port:PH09<0><2><default><default>
+gpio_pin_8 = port:PH10<0><2><default><default>
+gpio_pin_9 = port:PH05<0><2><default><default>
+gpio_pin_10 = port:PI10<0><2><default><default>
+gpio_pin_11 = port:PI12<0><2><default><default>
+gpio_pin_12 = port:PI13<0><2><default><default>
+gpio_pin_13 = port:PI11<0><2><default><default>
+gpio_pin_14 = port:PH11<0><2><default><default>
+gpio_pin_15 = port:PH12<0><2><default><default>
+gpio_pin_16 = port:PH13<0><2><default><default>
+gpio_pin_17 = port:PH14<0><2><default><default>
 gpio_pin_18 = port:PH15<1><default><default><0>
 gpio_pin_19 = port:PH16<1><default><default><0>
-gpio_pin_20 = port:PC19<0><1><default><default>
-gpio_pin_21 = port:PC21<0><1><default><default>
-gpio_pin_22 = port:PC22<0><1><default><default>
-gpio_pin_23 = port:PC20<0><1><default><default>
-; Redeclared gpio_pin_0 as gpio_pin_24, for sun4i-gpio driver
-gpio_pin_24 = port:PI19<0><1><default><default>
+gpio_pin_20 = port:PC19<0><2><default><default>
+gpio_pin_21 = port:PC21<0><2><default><default>
+gpio_pin_22 = port:PC22<0><2><default><default>
+gpio_pin_23 = port:PC20<0><2><default><default>
 
 [sb_pwm0]
 pwm_gpio = port:PH06<1><default><default><default>
