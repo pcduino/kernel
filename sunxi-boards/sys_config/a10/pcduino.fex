@@ -935,6 +935,8 @@ gpio_pin_20 = port:PC19<0><2><default><default>
 gpio_pin_21 = port:PC21<0><2><default><default>
 gpio_pin_22 = port:PC22<0><2><default><default>
 gpio_pin_23 = port:PC20<0><2><default><default>
+; Redeclared gpio_pin_0 as gpio_pin_24, for sun4i-gpio driver
+gpio_pin_24 = port:PI19<1><2><default><default>
 
 [sb_pwm0]
 pwm_gpio = port:PH06<1><default><default><default>
